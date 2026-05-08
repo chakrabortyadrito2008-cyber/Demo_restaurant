@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   const containerRef = useRef(null);
@@ -49,15 +50,19 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center lg:justify-center">
-            <button className="bg-red text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-red/90 hover:scale-105 transition-all gold-shadow group flex items-center gap-3 border-none cursor-pointer">
-              Explore Our Rooms
-              <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-                <ChevronRight size={16} />
-              </motion.span>
-            </button>
-            <button className="border border-gold/40 text-gold px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gold/10 hover:border-gold transition-all cursor-pointer bg-transparent">
-              Reserve a Table
-            </button>
+            <Link to="/rooms" className="no-underline">
+              <button className="bg-red text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-red/90 hover:scale-105 transition-all gold-shadow group flex items-center gap-3 border-none cursor-pointer w-full sm:w-auto">
+                Explore Our Rooms
+                <motion.span animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+                  <ChevronRight size={16} />
+                </motion.span>
+              </button>
+            </Link>
+            <Link to="/dining" className="no-underline">
+              <button className="border border-gold/40 text-gold px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-gold/10 hover:border-gold transition-all cursor-pointer bg-transparent w-full sm:w-auto">
+                Reserve a Table
+              </button>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
