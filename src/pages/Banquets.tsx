@@ -40,6 +40,7 @@ export function Banquets() {
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2000&auto=format&fit=crop" 
             className="w-full h-full object-cover"
             alt="Banquets Hero"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-black/60" />
         </motion.div>
@@ -102,6 +103,7 @@ export function Banquets() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     alt={hall.name} 
                     loading="lazy"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 lg:-bottom-10 lg:-right-10 glass px-8 py-4 rounded-2xl gold-border hidden sm:block">

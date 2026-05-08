@@ -26,6 +26,8 @@ export function Hero() {
           alt="Sher E Bengal Luxury Exterior"
           className="w-full h-full object-cover opacity-60"
           referrerPolicy="no-referrer"
+          // @ts-ignore
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-transparent to-primary-dark" />
       </motion.div>

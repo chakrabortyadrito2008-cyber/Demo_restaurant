@@ -128,7 +128,6 @@ export default function App() {
           <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/30">
             <p>© 2024 Sher E Bengal Hotel & Restaurant. All rights reserved.</p>
             <p className="text-gold/60 italic">Designed for Royalty</p>
-            <p className="text-white/20 normal-case italic">I like a girl and she is very special</p>
           </div>
         </footer>
       </div>

@@ -33,6 +33,8 @@ export function Dining() {
             className="w-full h-full object-cover opacity-40 scale-105" 
             alt="Royal Dining"
             referrerPolicy="no-referrer"
+            // @ts-ignore
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent" />
         </div>

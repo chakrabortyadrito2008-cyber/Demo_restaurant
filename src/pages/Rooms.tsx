@@ -30,6 +30,8 @@ export function Rooms() {
             className="w-full h-full object-cover opacity-50"
             alt="Suites Hero"
             referrerPolicy="no-referrer"
+            // @ts-ignore
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-black/60" />
         </motion.div>
@@ -140,6 +142,7 @@ export function Rooms() {
                   alt={room.name} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="w-full md:w-3/5 p-8 flex flex-col justify-between">

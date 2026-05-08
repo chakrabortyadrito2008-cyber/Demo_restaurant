@@ -60,22 +60,28 @@ export const ParticleBackground: React.FC = () => {
 
     const init = () => {
       const { width, height } = canvas.getBoundingClientRect();
-      // Account for DPI
-      canvas.width = width * window.devicePixelRatio;
-      canvas.height = height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      // Cap DPI at 2 to balance quality and performance
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
 
-      // Density based on screen size
-      const particleCount = Math.floor((width * height) / 12000);
+      // Reduced density for peak performance
+      const particleCount = Math.floor((width * height) / 20000);
       particles = Array.from({ length: particleCount }, () => new Particle(width, height));
     };
 
     const animate = () => {
-      const { width, height } = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, width, height);
+      const { width, height } = canvas;
+      // Use logical width/height for calculations
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const logicalWidth = width / dpr;
+      const logicalHeight = height / dpr;
+
+      ctx.clearRect(0, 0, logicalWidth, logicalHeight);
 
       particles.forEach((particle) => {
-        particle.update(width, height);
+        particle.update(logicalWidth, logicalHeight);
         particle.draw(ctx);
       });
 
