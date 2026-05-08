@@ -1,0 +1,8 @@
+{
+  "name": "Sher E Bengal Hotel & Restaurant",
+  "description": "A premium hospitality destination in Durgapur, blending Royal Luxury with Modern Comfort. Featuring luxury rooms, fine dining, and a sophisticated atmosphere.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": []
+}

@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net: Deny all by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Admin check: assumes an 'admins' collection exists where doc ID is UID
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // --- Collections ---
+
+    match /contactInquiries/{inquiryId} {
+      // Allow creation by anyone (since it's a contact form)
+      // BUT enforce strict schema and immutability
+      allow create: if isValidId(inquiryId) 
+        && isValidContactInquiry(incoming());
+
+      // Only admins can read the inquiries
+      allow read: if isAdmin();
+      
+      // Updates and deletes are forbidden even for admins to preserve audit trail
+      // unless specified otherwise.
+    }
+
+    function isValidContactInquiry(data) {
+      return data.keys().hasAll(['name', 'email', 'subject', 'message', 'createdAt'])
+        && data.keys().size() == 5
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 100
+        && data.email is string && data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
+        && data.subject is string && data.subject.size() <= 100
+        && data.message is string && data.message.size() >= 10 && data.message.size() <= 2000
+        && data.createdAt == request.time; // Enforce server timestamp
+    }
+  }
+}
