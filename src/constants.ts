@@ -15,7 +15,7 @@ export const ROOM_TIERS = [
     name: 'Regal Presidential Suite',
     description: 'The pinnacle of luxury with panoramic views and personalized butler service.',
     price: '₹12,499',
-    image: 'https://images.unsplash.com/photo-1591088398332-8a77d399e843?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1591088398332-8a77d399e843?q=60&w=800&auto=format&fit=crop',
     amenities: ['Private Lounge', 'Jacuzzi', 'Mini Bar', '24/7 Service'],
   },
   {
@@ -23,7 +23,7 @@ export const ROOM_TIERS = [
     name: 'Premium Deluxe',
     description: 'A perfect blend of modern comfort and royal elegance for the sophisticated traveler.',
     price: '₹7,999',
-    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=60&w=800&auto=format&fit=crop',
     amenities: ['King Bed', 'City View', 'Work Station', 'High-speed Wifi'],
   },
   {
@@ -31,7 +31,7 @@ export const ROOM_TIERS = [
     name: 'Executive Comfort',
     description: 'Sleek design focused on productivity and relaxation for corporate guests.',
     price: '₹4,999',
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d59735288?q=80&w=1000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d59735288?q=60&w=800&auto=format&fit=crop',
     amenities: ['Queen Bed', 'Smart TV', 'Coffee Maker', 'Climate Control'],
   },
 ];
@@ -52,7 +52,7 @@ export const MENU_CATEGORIES = [
       { name: 'Masala Papad', price: '₹90' },
       { name: 'Roasted Papad', price: '₹60' },
     ],
-    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1000&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1562967914-608f82629710?q=60&w=800&auto=format&fit=crop'
   },
   {
     name: 'Kebabs & Tandoor',
@@ -74,7 +74,7 @@ export const MENU_CATEGORIES = [
       { name: 'Kundan Tara Kabab (Mushroom)', price: '₹180' },
       { name: 'Hara Bhara Kabab', price: '₹160' },
     ],
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=1000&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=60&w=800&auto=format&fit=crop'
   },
   {
     name: 'Chinese Starters',

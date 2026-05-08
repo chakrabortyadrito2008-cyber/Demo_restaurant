@@ -26,9 +26,10 @@ export function Rooms() {
           className="absolute inset-0 z-0"
         >
           <img 
-            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=60&w=1200&auto=format&fit=crop" 
             className="w-full h-full object-cover opacity-50"
             alt="Suites Hero"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-transparent to-black/60" />
         </motion.div>
@@ -138,6 +139,7 @@ export function Rooms() {
                   src={room.image} 
                   alt={room.name} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  loading="lazy"
                 />
               </div>
               <div className="w-full md:w-3/5 p-8 flex flex-col justify-between">

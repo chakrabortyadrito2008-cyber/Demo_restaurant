@@ -22,9 +22,10 @@ export function Hero() {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop"
+          src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=60&w=1600&auto=format&fit=crop"
           alt="Sher E Bengal Luxury Exterior"
           className="w-full h-full object-cover opacity-60"
+          referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/80 via-transparent to-primary-dark" />
       </motion.div>

@@ -2,25 +2,26 @@ import { motion } from 'motion/react';
 import { Button } from '@/src/components/ui/button';
 import { Calendar, Users, Music, Utensils, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEOSection } from '../components/SEOSection';
 
 const BANQUET_HALLS = [
   {
     name: "The Imperial Ballroom",
     capacity: "500-800 Guests",
     desc: "A majestic space for grand weddings and corporate galas, featuring crystal chandeliers and a state-of-the-art sound system.",
-    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=60&w=800&auto=format&fit=crop"
   },
   {
     name: "Royal Pavilion",
     capacity: "200-400 Guests",
     desc: "An elegant setting for mid-sized celebrations, heritage-inspired decor, and seamless indoor-outdoor connectivity.",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=60&w=800&auto=format&fit=crop"
   },
   {
     name: "The Regency Lounge",
     capacity: "50-150 Guests",
     desc: "Perfect for intimate gatherings, pre-wedding rituals, or upscale corporate meetups in an atmosphere of refined luxury.",
-    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=1200&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=60&w=800&auto=format&fit=crop"
   }
 ];
 
@@ -96,7 +97,12 @@ export function Banquets() {
             >
               <div className="w-full lg:w-1/2 relative group">
                 <div className="aspect-[16/9] rounded-3xl overflow-hidden gold-border gold-shadow">
-                  <img src={hall.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={hall.name} />
+                  <img 
+                    src={hall.image} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    alt={hall.name} 
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute -bottom-6 -right-6 lg:-bottom-10 lg:-right-10 glass px-8 py-4 rounded-2xl gold-border hidden sm:block">
                   <span className="text-gold font-bold">{hall.capacity}</span>
@@ -146,6 +152,7 @@ export function Banquets() {
            </Button>
         </Link>
       </section>
+      <SEOSection />
     </div>
   );
 }

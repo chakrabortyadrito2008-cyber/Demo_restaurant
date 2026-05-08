@@ -78,9 +78,11 @@ export function Home() {
             >
               <div className="aspect-[4/5] rounded-3xl overflow-hidden gold-border gold-shadow relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=60&w=800&auto=format&fit=crop"
                   alt="Sher E Bengal Durgapur Interior Luxury Detail"
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent" />
               </div>
@@ -149,9 +151,11 @@ export function Home() {
           className="absolute inset-0 z-0"
         >
           <img 
-            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=60&w=1600&auto=format&fit=crop"
             className="w-full h-[120%] object-cover opacity-40 grayscale group-hover:grayscale-0 transition-all duration-1000"
             alt="Parallax background"
+            loading="lazy"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-primary-dark/40" />
         </motion.div>

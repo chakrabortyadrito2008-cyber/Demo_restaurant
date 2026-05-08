@@ -3,22 +3,53 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
-import { Rooms } from './pages/Rooms';
-import { Dining } from './pages/Dining';
-import { Gallery } from './pages/Gallery';
-import { Contact } from './pages/Contact';
-import { Banquets } from './pages/Banquets';
 import { ErrorBoundary } from './components/ErrorBoundary';
+import { ParticleBackground } from './components/ParticleBackground';
+
+// Helper component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+// Lazy load pages for better initial load performance
+const Home = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
+const Rooms = lazy(() => import('./pages/Rooms').then(m => ({ default: m.Rooms })));
+const Dining = lazy(() => import('./pages/Dining').then(m => ({ default: m.Dining })));
+const Gallery = lazy(() => import('./pages/Gallery').then(m => ({ default: m.Gallery })));
+const Contact = lazy(() => import('./pages/Contact').then(m => ({ default: m.Contact })));
+const Banquets = lazy(() => import('./pages/Banquets').then(m => ({ default: m.Banquets })));
+
+// Loading component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-primary-dark">
+    <motion.div 
+      animate={{ 
+        scale: [1, 1.2, 1],
+        opacity: [0.5, 1, 0.5] 
+      }}
+      transition={{ duration: 2, repeat: Infinity }}
+      className="text-gold font-serif text-2xl tracking-[0.3em] font-bold"
+    >
+      SHER E BENGAL
+    </motion.div>
+  </div>
+);
 
 export default function App() {
   return (
     <ErrorBoundary>
       <Router>
+        <ScrollToTop />
         <div className="min-h-screen bg-primary-dark relative overflow-hidden">
+        <ParticleBackground />
         {/* Animated Background Golden Lights */}
         <div className="fixed inset-0 pointer-events-none z-0">
           <motion.div 
@@ -52,14 +83,16 @@ export default function App() {
         <div className="relative z-10">
           <Navbar />
           <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/rooms" element={<Rooms />} />
-              <Route path="/dining" element={<Dining />} />
-              <Route path="/banquets" element={<Banquets />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/rooms" element={<Rooms />} />
+                <Route path="/dining" element={<Dining />} />
+                <Route path="/banquets" element={<Banquets />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
           </main>
           <footer className="bg-black/80 border-t border-gold/10 py-20 px-6 relative z-10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -95,6 +128,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/30">
             <p>© 2024 Sher E Bengal Hotel & Restaurant. All rights reserved.</p>
             <p className="text-gold/60 italic">Designed for Royalty</p>
+            <p className="text-white/20 normal-case italic">I like a girl and she is very special</p>
           </div>
         </footer>
       </div>

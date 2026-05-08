@@ -1,18 +1,19 @@
 import { motion } from 'motion/react';
 import { Maximize2 } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/src/components/ui/dialog';
+import { SEOSection } from '../components/SEOSection';
 
 const IMAGES = [
-  'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1591088398332-8a77d399e843?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=1200&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1578683010236-d716f9759678?q=80&w=1200&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1590490360182-c33d59735288?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1517840901100-8179e982ad91?q=80&w=1000&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1591088398332-8a77d399e843?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1544124499-58912cbddaad?q=60&w=1000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1578683010236-d716f9759678?q=60&w=1000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1590490360182-c33d59735288?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1517840901100-8179e982ad91?q=60&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=60&w=800&auto=format&fit=crop',
 ];
 
 export function Gallery() {
@@ -50,6 +51,7 @@ export function Gallery() {
                     alt={`Sher E Bengal ${idx}`} 
                     className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700" 
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                     <div className="w-12 h-12 rounded-full glass flex items-center justify-center border border-gold/40 text-gold shadow-lg shadow-gold/20">
@@ -69,6 +71,9 @@ export function Gallery() {
             </Dialog>
           </div>
         ))}
+      </div>
+      <div className="mt-32">
+        <SEOSection />
       </div>
     </div>
   );

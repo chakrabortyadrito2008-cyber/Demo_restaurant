@@ -29,9 +29,10 @@ export function Dining() {
        <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1544124499-58912cbddaad?q=80&w=2000&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1544124499-58912cbddaad?q=60&w=1200&auto=format&fit=crop" 
             className="w-full h-full object-cover opacity-40 scale-105" 
             alt="Royal Dining"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/40 to-transparent" />
         </div>
@@ -92,7 +93,13 @@ export function Dining() {
                 className="group relative rounded-3xl overflow-hidden glass gold-border"
               >
                 <div className="aspect-[4/5] overflow-hidden">
-                  <img src={dish.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={dish.name} />
+                  <img 
+                    src={dish.image} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    alt={dish.name} 
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
                   <span className="text-[10px] uppercase font-bold text-gold tracking-widest mb-2 block">{dish.tag}</span>
@@ -209,6 +216,8 @@ export function Dining() {
                     src={category.image} 
                     alt={category.name} 
                     className="w-full h-full object-cover opacity-60" 
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent flex items-center p-12">
                     <h2 className="text-4xl md:text-6xl font-serif font-bold text-gold italic translate-y-[-4px]">{category.name}</h2>

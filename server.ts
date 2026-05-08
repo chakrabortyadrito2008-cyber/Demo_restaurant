@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer as createViteServer } from 'vite';
 import helmet from 'helmet';
 import cors from 'cors';
+import compression from 'compression';
 import { rateLimit } from 'express-rate-limit';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -14,6 +15,9 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
   const isProd = process.env.NODE_ENV === 'production';
+
+  // Enable compression
+  app.use(compression());
 
   // 1. Security Headers (Helmet)
   app.use(
